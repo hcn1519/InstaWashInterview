@@ -17,8 +17,10 @@ class MainVC: UITableViewController {
 
         self.navigationController?.navigationBar.isTranslucent = false
         
-        generateTestData()
+//        generateTestData()
+        getJsonData()
         
+        print(productList)
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -64,4 +66,63 @@ class MainVC: UITableViewController {
         productList.append(item2)
         productList.append(item3)
     }
+    
+    func getJsonData() {
+        let url = URL(string: "http://demo7367352.mockable.io")
+        
+        let request = URLRequest(url: url!)
+        
+        let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
+        
+        let task = defaultSession.dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            do {
+                guard let rawItem = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] else {
+                    print("error trying to convert data to JSON")
+                    return
+                }
+                if let fineItem = rawItem["goods"] as? [[String:Any]] {
+                    
+                    
+                    let _ = fineItem.map { (eachItem) -> [[String : Any]] in
+                        let eachProduct = Product(title: "", price: 0, regDate: "", description: "", detailDescription: "", iconURL: "")
+                        
+                        let title = eachItem["TITLE"]
+                        let price = eachItem["PRICE"]
+                        let regDate = eachItem["REGDATE"]
+                        let description = eachItem["DESCRIPTION"]
+                        let iconURL = eachItem["ICON_URL"]
+                        
+                        if let title = title as? String {
+                            eachProduct.title = title
+                        }
+                        if let price = price as? String {
+                            eachProduct.price = Int(price)!
+                        }
+                        if let regDate = regDate as? String {
+                            eachProduct.regDate = regDate
+                        }
+                        if let description = description as? String {
+                            eachProduct.description = description
+                        }
+                        if let iconURL = iconURL as? String {
+                            eachProduct.iconURL = iconURL
+                        }
+                        
+                        self.productList.append(eachProduct)
+                        self.tableView.reloadData()
+                        return fineItem
+                    }
+                    
+                }
+                
+            } catch  {
+                print("error trying to convert data to JSON")
+                return
+            }
+            
+        })
+        task.resume()
+    }
+
 }

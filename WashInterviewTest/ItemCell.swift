@@ -17,24 +17,23 @@ class ItemCell: UITableViewCell {
     
     func configureCell(_ product: Product) {
         title.text = product.title
-        price.text = "₩ \(product.price.priceWithComma(price: product.price))"
+        price.text = "₩ \(product.price)"
         mainDescription.text = product.description
         
         
-        let url = URL(string: product.iconURL)!
-        DispatchQueue.global().async {
-            do {
-                let data = try Data(contentsOf: url)
-                DispatchQueue.global().sync {
-                    self.iconURL.image = UIImage(data: data)
-                }
-            } catch {}
+        if let url = URL(string: product.iconURL) {
+            
+            DispatchQueue.global().async {
+                do {
+                    let data = try Data(contentsOf: url)
+                    DispatchQueue.global().sync {
+                        self.iconURL.image = UIImage(data: data)
+                    }
+                } catch {}
+            }
         }
     }
     
-}
-
-extension Int {
     func priceWithComma(price num: Int) -> String {
         var strArray = [String]()
         let divide = num / 1000
@@ -49,6 +48,24 @@ extension Int {
         }
         return result
     }
+    
+}
+
+//extension Int {
+//    func priceWithComma(price num: Int) -> String {
+//        var strArray = [String]()
+//        let divide = num / 1000
+//        var result = ""
+//        
+//        strArray.append(String(divide))
+//        strArray.append(",")
+//        strArray.append("000")
+//        
+//        for i in strArray {
+//            result.append(i)
+//        }
+//        return result
+//    }
 //    func priceWithComma(price num: Int) -> String {
 //        var num = num
 //        var result = ""
@@ -75,4 +92,4 @@ extension Int {
 //        
 //        return result
 //    }
-}
+//}
