@@ -14,6 +14,10 @@
 		7E426E0C1E865515006D1778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E426E0A1E865515006D1778 /* LaunchScreen.storyboard */; };
 		7E426E141E86584C006D1778 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E426E131E86584C006D1778 /* ItemCell.swift */; };
 		7E426E1A1E866041006D1778 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E426E191E866041006D1778 /* Product.swift */; };
+		7EBC5D561E877894008F51BE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBC5D551E877894008F51BE /* ImageCell.swift */; };
+		7EBC5D581E877D7F008F51BE /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBC5D571E877D7F008F51BE /* InfoCell.swift */; };
+		7EBC5D5A1E877F9A008F51BE /* NumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBC5D591E877F9A008F51BE /* NumberHelper.swift */; };
+		7EF95CAC1E86F196003299D0 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF95CAB1E86F196003299D0 /* DetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		7E426E0D1E865515006D1778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E426E131E86584C006D1778 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		7E426E191E866041006D1778 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		7EBC5D551E877894008F51BE /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		7EBC5D571E877D7F008F51BE /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		7EBC5D591E877F9A008F51BE /* NumberHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberHelper.swift; sourceTree = "<group>"; };
+		7EF95CAB1E86F196003299D0 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				7E426E131E86584C006D1778 /* ItemCell.swift */,
+				7EBC5D551E877894008F51BE /* ImageCell.swift */,
+				7EBC5D571E877D7F008F51BE /* InfoCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -87,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				7E426E031E865515006D1778 /* MainVC.swift */,
+				7EF95CAB1E86F196003299D0 /* DetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 		7E426E1B1E867714006D1778 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7EBC5D591E877F9A008F51BE /* NumberHelper.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -184,10 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF95CAC1E86F196003299D0 /* DetailVC.swift in Sources */,
 				7E426E041E865515006D1778 /* MainVC.swift in Sources */,
 				7E426E1A1E866041006D1778 /* Product.swift in Sources */,
 				7E426E021E865515006D1778 /* AppDelegate.swift in Sources */,
 				7E426E141E86584C006D1778 /* ItemCell.swift in Sources */,
+				7EBC5D561E877894008F51BE /* ImageCell.swift in Sources */,
+				7EBC5D5A1E877F9A008F51BE /* NumberHelper.swift in Sources */,
+				7EBC5D581E877D7F008F51BE /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

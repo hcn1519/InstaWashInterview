@@ -17,13 +17,13 @@ class ItemCell: UITableViewCell {
     
     func configureCell(_ product: Product) {
         title.text = product.title
-        price.text = "₩ \(product.price)"
+        price.text = "₩ \(NumberHelper.priceWithComma(price: product.price))"
         mainDescription.text = product.description
         
         
         if let url = URL(string: product.iconURL) {
             
-            DispatchQueue.global().async {
+            DispatchQueue.main.async {
                 do {
                     let data = try Data(contentsOf: url)
                     DispatchQueue.global().sync {
@@ -34,20 +34,7 @@ class ItemCell: UITableViewCell {
         }
     }
     
-    func priceWithComma(price num: Int) -> String {
-        var strArray = [String]()
-        let divide = num / 1000
-        var result = ""
-        
-        strArray.append(String(divide))
-        strArray.append(",")
-        strArray.append("000")
-        
-        for i in strArray {
-            result.append(i)
-        }
-        return result
-    }
+    
     
 }
 

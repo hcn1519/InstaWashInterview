@@ -15,6 +15,7 @@ class Product {
     private var _description: String!
     private var _detailDescription: String!
     private var _iconURL: String!
+    private var _images = [String]()
     
     // constructor
     init(title: String, price: Int, regDate: String, description: String, detailDescription: String, iconURL: String) {
@@ -73,6 +74,13 @@ class Product {
             return self._iconURL
         } set {
             self._iconURL = newValue
+        }
+    }
+    var images: [String] {
+        get {
+            return self._images
+        } set {
+            self._images = newValue
         }
     }
 }
