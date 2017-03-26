@@ -32,6 +32,9 @@ class DetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        print(product.title)
+        print(product.detailDescription)
     }
     
     // Content TableView
