@@ -77,12 +77,13 @@ class MainVC: UITableViewController {
                 }
                     
                 for item in fineItem {
-                    let eachProduct = Product(title: "", price: 0, regDate: "", description: "", detailDescription: "", iconURL: "")
+                    let eachProduct = Product(title: "", price: 0, regDate: "", description: "", detailDescription: "", iconURL: "", images: [String]())
                     
                     let title = item["TITLE"]
                     let price = item["PRICE"]
                     let regDate = item["REGDATE"]
                     let description = item["DESCRIPTION"]
+                    let detailDescription = item["DETAIL_DESCRIPTION"]
                     let iconURL = item["ICON_URL"]
                     let images = item["IMAGES"]
                     
@@ -99,12 +100,17 @@ class MainVC: UITableViewController {
                     if let description = description as? String {
                         eachProduct.description = description
                     }
+                    if let details = detailDescription as? String {
+                        eachProduct.detailDescription = details
+                    }
                     if let iconURL = iconURL as? String {
                         eachProduct.iconURL = iconURL
                     }
                     
                     if let images = images as? [String] {
-                        eachProduct.images = images
+                        for item in images {
+                            eachProduct.images.append(item)
+                        }
                     }
                     self.productList.append(eachProduct)
                 }
@@ -127,6 +133,7 @@ class MainVC: UITableViewController {
         if segue.identifier == "goToProductDetail" {
             if let controller = segue.destination as? DetailVC, let indexPath = tableView.indexPathForSelectedRow {
                 controller.product = productList[indexPath.row]
+                controller.images = productList[indexPath.row].images
             }
         }
     }

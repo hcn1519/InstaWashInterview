@@ -18,13 +18,14 @@ class Product {
     private var _images = [String]()
     
     // constructor
-    init(title: String, price: Int, regDate: String, description: String, detailDescription: String, iconURL: String) {
+    init(title: String, price: Int, regDate: String, description: String, detailDescription: String, iconURL: String, images: [String]) {
         self._title = title
         self._price = price
         self._regDate = regDate
         self._description = description
         self._detailDescription = detailDescription
         self._iconURL = iconURL
+        self._images = images
     }
     
     // computed property, getter & setter
